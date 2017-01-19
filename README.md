@@ -28,7 +28,8 @@ sudo apt-get install postgresql postgresql-contrib postgresql-common libpq-dev l
 ```sh
 sudo nano /etc/init.d/php-fastcgi
 ```
-   //insert code
+> insert code  
+
 ```sh
 sudo chmod +x /etc/init.d/php-fastcgi
 sudo /etc/init.d/php-fastcgi start
@@ -61,11 +62,13 @@ CREATE LANGUAGE plpgsql;
 ```sh
 sudo nano /etc/postgresql/8.2/main/pg_hba.conf 
 ```
-   host all all xx.xx.xx.xx/32 trust
+> host all all xx.xx.xx.xx/32 trust
+
 ```sh
 sudo nano /var/lib/pgsql/data/postgresql.conf 
 ```
-   listen_addresses='*'
+> listen_addresses='*'
+
 ```sh
 sudo service postgresql restart
 ```
@@ -82,7 +85,8 @@ cat id_dsa.pub >> $HOME/.ssh/authorized_keys
 chmod 0600 $HOME/.ssh/authorized_keys
 sudo nano /etc/ssh/sshd_config
 ```
-   PasswordAuthentication no
+> PasswordAuthentication no
+
 ```sh
 sudo /etc/init.d/ssh restart
 ```
@@ -91,8 +95,8 @@ sudo /etc/init.d/ssh restart
 ssh -i $HOME/.ssh/id_dsa server
 nano $HOME/.ssh/config
 ```
-   Host server.com
-        IdentityFile ~/.ssh/id_dsa
+> Host server.com  
+>    IdentityFile ~/.ssh/id_dsa
 
 #java
 ```sh
@@ -107,7 +111,8 @@ java -version
 sudo aptitude install proftpd
 sudo pico /etc/shells
 ```
-   /bin/false
+> /bin/false
+
 ```sh
 sudo mkdir /home/FTP-shared
 sudo useradd userftp -p pass -d /home/FTP-shared -s /bin/false
@@ -130,7 +135,8 @@ sudo add-apt-repository ppa:rwky/redis
 sudo apt-get install redis-server
 redis-cli
 ```
-ping
+> ping
+
 ```sh
 npm install -g redis-commander
 redis-commander
@@ -290,7 +296,6 @@ sudo ufw allow 443/tcp
 sudo ufw allow 4444/tcp
 sudo ufw allow 5432/tcp
 sudo ufw allow 15672/tcp
-
 sudo ufw allow out 53
 sudo ufw allow out 25/tcp
 sudo ufw allow out 587/tcp
@@ -311,8 +316,9 @@ sudo apt-get install postfix
 sudo apt-get install mailutils
 sudo nano /etc/php5/conf.d/mailconfig.ini
 ```
-sendmail_from = "me@example.com"  
-sendmail_path = "/usr/sbin/sendmail -t -i -f me@example.com"  
+> sendmail_from = "me@example.com"   
+> sendmail_path = "/usr/sbin/sendmail -t -i -f me@example.com"  
+
 ```sh  
 sudo dpkg-reconfigure postfix
 sudo /etc/init.d/postfix reload
@@ -418,8 +424,8 @@ nano /opt/orientdb/config/orientdb-server-config.xml
 sudo /opt/orientdb/bin/console.sh
 connect remote:127.0.0.1/drops root password
 ```
-EXPORT DATABASE ../schema.export  
-IMPORT DATABASE ../schema.export -preserveClusterIDs=true  
+> EXPORT DATABASE ../schema.export  
+> IMPORT DATABASE ../schema.export -preserveClusterIDs=true  
 
 # oracle
 ```sh
