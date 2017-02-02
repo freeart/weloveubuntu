@@ -106,6 +106,12 @@ sudo apt-get install oracle-java7-installer
 java -version
 ```
 
+#rust
+```sh
+curl https://sh.rustup.rs -sSf | sh
+sudo apt-get install g++ make software-properties-common
+```
+
 #ftp
 ```sh
 sudo aptitude install proftpd
