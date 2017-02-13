@@ -172,6 +172,7 @@ sudo nano /etc/rabbitmq/rabbitmq.config
   {default_user, <<"username">>},
   {default_pass, <<"pwd">>},
   {default_permissions, [<<".*">>, <<".*">>, <<".*">>]},
+  {cluster_partition_handling, pause_minority},
   {default_user_tags, [administrator]}
   ]},
   {rabbitmq_management,[
