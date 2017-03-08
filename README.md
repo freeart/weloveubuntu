@@ -38,7 +38,7 @@ sudo /etc/init.d/nginx start
 ```
 
 #erlang
-```erl
+```sh
 sudo apt-get install erlang-base erlang-nox erlang-dev erlang-src
 ```
 
