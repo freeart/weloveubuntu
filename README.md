@@ -37,6 +37,11 @@ sudo update-rc.d php-fastcgi defaults
 sudo /etc/init.d/nginx start
 ```
 
+#erlang
+```erl
+sudo apt-get install erlang-base erlang-nox erlang-dev erlang-src
+```
+
 #mysql
 ```sh
 sudo apt-get install mysql-server
