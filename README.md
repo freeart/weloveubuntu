@@ -245,7 +245,7 @@ sudo rabbitmqctl set_policy HA ".*" "{\"ha-mode\": \"all\"}"
 # Haproxy
 ```sh
 sudo apt-get install haproxy
-sudo nano /etx/haproxy/haproxy.cfg
+sudo nano /etc/haproxy/haproxy.cfg
 ```
 ```python
 global
@@ -270,6 +270,9 @@ listen rabbitmq
   bind *:5670
   server rabbitslave xx.xx.xx.xx:5672 check inter 5s rise 2 fall 3
   server rabbitmaster xx.xx.xx.xx:5672 check inter 5s rise 2 fall 3
+```
+```sh
+sudo /etc/init.d/haproxy restart
 ```
 
 # Node
