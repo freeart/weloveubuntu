@@ -1,30 +1,30 @@
-#set time
+# set time
 ```sh
 sudo aptitude install tzdata  
 sudo dpkg-reconfigure tzdata  
 ```
 
-#lastest
+# lastest
 ```sh
 sudo add-apt-repository ppa:pitti/postgresql
 sudo add-apt-repository ppa:nginx/stable
 sudo add-apt-repository ppa:ondrej/php5
 ```
 
-#apt-get
+# apt-get
 ```sh
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get dist-upgrade
 ```
 
-#common
+# common
 ```sh
 sudo apt-get install nload mc git curl fail2ban build-essential python-software-properties apt-show-versions zip unzip python g++ make software-properties-common
 sudo apt-get install postgresql postgresql-contrib postgresql-common libpq-dev libssl-dev php5-cgi php5-mysql php5-pgsql php5-cli nginx
 ```
 
-#php
+# php
 ```sh
 sudo nano /etc/init.d/php-fastcgi
 ```
@@ -37,12 +37,12 @@ sudo update-rc.d php-fastcgi defaults
 sudo /etc/init.d/nginx start
 ```
 
-#erlang
+# erlang
 ```sh
 sudo apt-get install erlang-base erlang-nox erlang-dev erlang-src
 ```
 
-#mysql
+# mysql
 ```sh
 sudo apt-get install mysql-server
 mysql -u root
@@ -53,7 +53,7 @@ FLUSH PRIVILEGES;
 exit
 ```
 
-#postgresql
+# postgresql
 ```sh
 passwd postgres ***
 su postgres ***
@@ -78,8 +78,8 @@ sudo nano /var/lib/pgsql/data/postgresql.conf
 sudo service postgresql restart
 ```
 
-#ssh
-##server
+# ssh
+## server
 ```sh
 mkdir -p $HOME/.ssh
 chmod 0700 $HOME/.ssh
@@ -95,7 +95,7 @@ sudo nano /etc/ssh/sshd_config
 ```sh
 sudo /etc/init.d/ssh restart
 ```
-##client
+## client
 ```sh
 ssh -i $HOME/.ssh/id_dsa server
 nano $HOME/.ssh/config
@@ -103,7 +103,7 @@ nano $HOME/.ssh/config
 > Host server.com  
 >    IdentityFile ~/.ssh/id_dsa
 
-#java
+# java
 ```sh
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
@@ -111,13 +111,13 @@ sudo apt-get install oracle-java7-installer
 java -version
 ```
 
-#rust
+# rust
 ```sh
 curl https://sh.rustup.rs -sSf | sh
 sudo apt-get install g++ make software-properties-common
 ```
 
-#ftp
+# ftp
 ```sh
 sudo aptitude install proftpd
 sudo pico /etc/shells
@@ -133,14 +133,14 @@ sudo umount /home/FTP-shared/upload
 sudo /etc/init.d/proftpd restart
 ```
 
-#selenium
+# selenium
 ```sh
 sudo apt-get install firefox xvfb
 npm install selenium-webdriver
 xvfb-run --server-args="-screen 0, 1366x768x24" start-selenium
 ```
 
-#Redis
+# Redis
 ```sh
 sudo add-apt-repository ppa:rwky/redis
 sudo apt-get install redis-server
@@ -153,7 +153,7 @@ npm install -g redis-commander
 redis-commander
 ```
 
-#RabbitMQ
+# RabbitMQ
 ```
 wget http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
 sudo apt-key add rabbitmq-signing-key-public.asc
@@ -207,7 +207,7 @@ post http://login:pwd@localhost:15672/api/exchanges/%2F/amq.default/publish
 {"properties":{},"routing_key":"chanell_name","payload":"test","payload_encoding":"string"}
 ```
 
-#RabbitMQ-cluster
+# RabbitMQ-cluster
 open ports  
 4369 (epmd)  
 5672, 5671 (AMQP 0-9-1 and 1.0 without and with TLS)  
@@ -242,7 +242,7 @@ https://thoughtsimproved.wordpress.com/2015/01/03/tech-recipe-setup-a-rabbitmq-c
 sudo rabbitmqctl set_policy HA ".*" "{\"ha-mode\": \"all\"}"
 ```
 
-#Haproxy
+# Haproxy
 ```sh
 sudo apt-get install haproxy
 sudo nano /etx/haproxy/haproxy.cfg
@@ -272,7 +272,7 @@ listen rabbitmq
   server rabbitmaster xx.xx.xx.xx:5672 check inter 5s rise 2 fall 3
 ```
 
-#Node
+# Node
 ```sh
 curl -sL https://deb.nodesource.com/setup | sudo bash -
 sudo apt-get install -y nodejs
@@ -287,7 +287,7 @@ nvm install 0.10
 nvm use 0.10
 ```
 
-#Firewall
+# Firewall
 ```sh
 sudo iptables-save > /root/firewall.rules
 iptables-restore < /root/firewall.rules
@@ -322,7 +322,7 @@ sudo ufw allow from 78.47.92.67
 sudo invoke-rc.d iptables-persistent save
 ```
 
-#Mail
+# Mail
 ```sh
 sudo apt-get install postfix
 sudo apt-get install mailutils
@@ -337,14 +337,14 @@ sudo /etc/init.d/postfix reload
 sudo /etc/init.d/networking restart
 ```
 
-#Go
+# Go
 ```sh
 sudo add-apt-repository ppa:duh/golang
 sudo apt-get update
 sudo apt-get install golang
 ```
 
-#Composer
+# Composer
 ```sh
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
@@ -352,27 +352,27 @@ alias composer='/usr/local/bin/composer'
 composer install
 ```
 
-#Bower
+# Bower
 ```sh
 npm install -g bower
 ```
 
-#Gulp
+# Gulp
 ```sh
 npm install -g gulp
 ```
 
-#npm
+# npm
 ```sh
 npm install npm-check-updates -g
 ```
 
-#sqllite
+# sqllite
 ```sh
 sudo apt-get install sqlite3 libsqlite3-dev
 ```
 
-#i386
+# i386
 ```sh
 sudo dpkg --add-architecture i386
 sudo apt-get update
@@ -380,7 +380,7 @@ sudo apt-get dist-upgrade
 sudo apt-get install xxx:i386
 ```
 
-#codius
+# codius
 ```sh
 sudo npm install stream-parser -g
 git clone https://github.com/crypti/crypti-nacl-node
@@ -394,36 +394,36 @@ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 40 --slave 
 sudo update-alternatives --set gcc /usr/bin/gcc-4.8
 ```
 
-#git submodule
-##create submodule
+# git submodule
+## create submodule
 ```sh
 git clone git://github.com/chneukirchen/main.git
 git submodule add git://github.com/chneukirchen/rack.git rack
 ```
-##commit
+## commit
 ```sh
 git commit -a
 git push
 ```
-##checkout
+## checkout
 ```sh
 git clone git://github.com/chneukirchen/main.git
 git submodule init
 git submodule update
 ```
-#pull
+## pull
 ```sh
 git submodule foreach git pull origin master
 ```
 
-#git apply new .gitignore
+## git apply new .gitignore
 ```sh
 git rm -r --cached .
 git add .
 git commit -m "fixed untracked files"
 ```
 
-#git connect via https with name-password
+## git connect via https with name-password
 ```sh
 git remote set-url origin https://name:password@gitaddress
 ```
