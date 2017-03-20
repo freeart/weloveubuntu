@@ -224,7 +224,8 @@ http://thesoftjaguar.com/posts/2014/06/18/rabbitmq-cluster/
 ```sh
 sudo service rabbitmq-server stop
 sudo cat /var/lib/rabbitmq/.erlang.cookie  #master
-sudo sh -c "echo 'COOKIE_FROM_MASTER' > /var/lib/rabbitmq/.erlang.cookie"  #master
+sudo sh -c "echo 'COOKIE_FROM_MASTER' > /var/lib/rabbitmq/.erlang.cookie"  #slave
+sudo sh -c "truncate -s -1 /var/lib/rabbitmq/.erlang.cookie"
 sudo service rabbitmq-server start
 sudo rabbitmqctl stop_app #master
 sudo rabbitmqctl reset #master
