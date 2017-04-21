@@ -489,3 +489,13 @@ sudo usermod -aG docker $(whoami)
 anaconda
 conda install -c anaconda pyodbc=3.0.10
 ```
+# ssl
+```sh
+openssl genrsa -des3 -out server.key 2048
+openssl rsa -in server.key -out server.key.insecure
+mv server.key server.key.secure
+mv server.key.insecure server.key
+openssl req -new -key server.key -out server.csr
+sudo cp server.crt /etc/ssl/certs
+sudo cp server.key /etc/ssl/private
+```
