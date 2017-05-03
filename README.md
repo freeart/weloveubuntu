@@ -499,3 +499,17 @@ openssl req -new -key server.key -out server.csr
 sudo cp server.crt /etc/ssl/certs
 sudo cp server.key /etc/ssl/private
 ```
+# cassandra
+```sh
+echo "deb http://www.apache.org/dist/cassandra/debian 39x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+curl https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -
+sudo apt-key adv --keyserver pool.sks-keyservers.net --recv-key A278B781FE4B2BDA
+sudo apt-get update
+sudo apt-get install cassandra
+sudo systemctl enable cassandra
+sudo service cassandra status
+cqlsh localhost
+sudo nano /etc/cassandra/cassandra.yaml
+```
+> rpc_address: 0.0.0.0
+> broadcast_rpc_address: <<external_public_ip>>
