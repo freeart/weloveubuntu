@@ -511,5 +511,5 @@ sudo service cassandra status
 cqlsh localhost
 sudo nano /etc/cassandra/cassandra.yaml
 ```
-> rpc_address: 0.0.0.0
+> rpc_address: 0.0.0.0   
 > broadcast_rpc_address: <<external_public_ip>>
