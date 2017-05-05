@@ -519,6 +519,7 @@ sudo nano /etc/cassandra/cassandra.yaml
 > rpc_address: 0.0.0.0   
 > broadcast_rpc_address: public_ip   
 > auto_bootstrap: false   
+> endpoint_snitch: GossipingPropertyFileSnitch   
 
 ## multi-node
 ```sh
@@ -531,3 +532,4 @@ sudo nano /etc/cassandra/cassandra.yaml
 > broadcast_rpc_address: public_ip   
 > seeds: "seed_public_ip_1, seed_public_ip_2"   
 > auto_bootstrap: false   
+> endpoint_snitch: GossipingPropertyFileSnitch   
