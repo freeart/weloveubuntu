@@ -509,6 +509,7 @@ sudo apt-get install cassandra
 sudo systemctl enable cassandra
 sudo service cassandra status
 cqlsh localhost
+sudo nodetool status
 ```
 ## single node
 ```sh
