@@ -511,7 +511,7 @@ sudo service cassandra status
 cqlsh localhost
 sudo nodetool status
 ```
-open ports
+open ports   
 7000,9042,(9160,7199)
 
 ## single node
