@@ -537,3 +537,8 @@ sudo nano /etc/cassandra/cassandra.yaml
 > seeds: "seed_public_ip_1, seed_public_ip_2"   
 > auto_bootstrap: false   
 > endpoint_snitch: GossipingPropertyFileSnitch   
+
+# macosx
+```sh
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+```
