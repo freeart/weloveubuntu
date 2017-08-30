@@ -159,14 +159,14 @@ wget http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
 sudo apt-key add rabbitmq-signing-key-public.asc
 sudo apt-get update
 sudo apt-get install rabbitmq-server
-rabbitmq-plugins enable rabbitmq_management
-rabbitmqctl stop
-rabbitmq-server -detached
-rabbitmqctl start_app
-rabbitmqctl add_user login pwd
-rabbitmqctl set_permissions login ".*" ".*" ".*"
-rabbitmqctl set_user_tags login administrator
-rabbitmqctl set_policy HA ".*" "{\"ha-mode\": \"all\"}"
+sudo rabbitmq-plugins enable rabbitmq_management
+sudo rabbitmqctl stop
+sudo rabbitmq-server -detached
+sudo rabbitmqctl start_app
+sudo rabbitmqctl add_user login pwd
+sudo rabbitmqctl set_permissions login ".*" ".*" ".*"
+sudo rabbitmqctl set_user_tags login administrator
+sudo rabbitmqctl set_policy HA ".*" "{\"ha-mode\": \"all\"}"
 sudo nano /etc/rabbitmq/rabbitmq.config
 ```
 ```erlang
@@ -200,6 +200,12 @@ sudo nano /etc/rabbitmq/rabbitmq_definitions.json
   ]
 }
 ```
+```sh
+sudo nano /etc/rabbitmq/rabbitmq-env.conf
+```
+> NODE_IP_ADDRESS=0.0.0.0  
+> RABBITMQ_USE_LONGNAME=true  
+
 http://stackoverflow.com/questions/31662727/define-rabbitmq-policies-in-configuration-file  
 http://localhost:15672/  
 post http://login:pwd@localhost:15672/api/exchanges/%2F/amq.default/publish  
@@ -216,25 +222,25 @@ open ports
 61613, 61614 (if STOMP is enabled)  
 1883, 8883 (if MQTT is enabled)  
 ```sh
-epmd -names
+sudo epmd -names
 sudo cat /proc/sys/kernel/hostname
 ```
 http://thesoftjaguar.com/posts/2014/06/18/rabbitmq-cluster/
 
 ```sh
-sudo service rabbitmq-server stop
+sudo service rabbitmq-server stop #slave
 sudo cat /var/lib/rabbitmq/.erlang.cookie  #master
 sudo sh -c "echo 'COOKIE_FROM_MASTER' > /var/lib/rabbitmq/.erlang.cookie"  #slave
-sudo truncate -s -1 /var/lib/rabbitmq/.erlang.cookie
-sudo chmod 0400 /var/lib/rabbitmq/.erlang.cookie
-sudo chown rabbitmq:rabbitmq /var/lib/rabbitmq/.erlang.cookie
-sudo service rabbitmq-server start
+sudo truncate -s -1 /var/lib/rabbitmq/.erlang.cookie #slave
+sudo chmod 0400 /var/lib/rabbitmq/.erlang.cookie #slave
+sudo chown rabbitmq:rabbitmq /var/lib/rabbitmq/.erlang.cookie #slave
+sudo service rabbitmq-server start #slave
 sudo rabbitmqctl stop_app #master
 sudo rabbitmqctl reset #master
 sudo rabbitmqctl start_app  #master
-sudo service rabbitmq-server stop
+sudo service rabbitmq-server stop #slave
 sudo sed -i "s/^$/xx.xx.xx.xx domain_name_from_hostname_file\n/" /etc/hosts #slave
-sudo service rabbitmq-server start
+sudo service rabbitmq-server start #slave
 sudo rabbitmqctl stop_app  #slave
 sudo rabbitmqctl reset  #slave
 sudo rabbitmqctl join_cluster --ram rabbit@domain_name_from_hostname_file #slave
