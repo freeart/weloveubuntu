@@ -548,3 +548,27 @@ sudo nano /etc/cassandra/cassandra.yaml
 ```sh
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 ```
+
+# etcd
+## proxy
+```sh
+sudo nano /etc/default/etcd
+```
+ETCD_NAME="DNS_LOCAL_NAME"  
+ETCD_INITIAL_CLUSTER_STATE="new"  
+ETCD_ADVERTISE_CLIENT_URLS="http://0.0.0.0:2379,http://0.0.0.0:4001"  
+ETCD_LISTEN_CLIENT_URLS="http://0.0.0.0:2379,http://0.0.0.0:4001"  
+ETCD_INITIAL_CLUSTER="default=http://localhost:2380,default=http://localhost:7001,ip-172-31-67-54.ec2.internal=http://172.31.67.54:2380,ip-172-31-67-54.ec2.internal=http://172.31.67.54:7001,ip-172-31-69-117.ec2.internal=http://172.31.69.117:2380,ip-172-31-69-117.ec2.internal=http://172.31.69.117:7001"  
+```sh
+sudo systemctl restart etcd
+```
+## node
+```sh
+sudo nano /etc/default/etcd
+```
+ETCD_NAME="DNS_LOCAL_NAME"  
+ETCD_ADVERTISE_CLIENT_URLS="http://0.0.0.0:2379,http://0.0.0.0:4001"  
+ETCD_LISTEN_CLIENT_URLS="http://0.0.0.0:2379,http://0.0.0.0:4001"   
+```sh
+sudo systemctl restart etcd
+```
