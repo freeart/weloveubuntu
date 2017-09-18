@@ -52,6 +52,11 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OP
 FLUSH PRIVILEGES;
 exit
 ```
+# mc
+```sh
+ln -s ~/.bash_profile ~/.local/share/mc/bashrc
+ln -s ~/.inputrc ~/.local/share/mc/inputrc
+```
 
 # postgresql
 ```sh
