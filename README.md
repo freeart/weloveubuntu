@@ -83,6 +83,12 @@ sudo nano /var/lib/pgsql/data/postgresql.conf
 sudo service postgresql restart
 ```
 
+# timescaledb
+```ssh
+sudo add-apt-repository ppa:timescale/timescaledb-ppa
+sudo apt install timescaledb
+```
+
 # ssh
 ## server
 ```sh
