@@ -87,6 +87,15 @@ sudo service postgresql restart
 ```ssh
 sudo add-apt-repository ppa:timescale/timescaledb-ppa
 sudo apt install timescaledb
+sudo nano /var/lib/pgsql/data/postgresql.conf 
+```
+shared_preload_libraries = ‘timescaledb’
+```ssh
+psql
+```
+```sql
+CREATE EXTENSION timescaledb;
+SELECT create_hypertable('tablename', 'timefield');
 ```
 
 # ssh
