@@ -472,14 +472,13 @@ git remote set-url origin https://name:password@gitaddress
 
 # orientdb
 ```sh
-sudo add-apt-repository ppa:webupd8team/java
-sudo apt-get install oracle-java8-set-default
-nano /opt/orientdb/config/orientdb-server-config.xml
-sudo /opt/orientdb/bin/console.sh
-connect remote:127.0.0.1/drops root password
+create database remote:http://localhost/dbname root pwd
+connect remote:http://localhost/dbname root pwd
+export database /orientdb/dbname.export -includeRecords=false
+docker cp docker_id:/orientdb/dbname.export.gz ./
+docker cp /dbname.export.gz docker_id:/orientdb/
+import database /orientdb/dbname.export -preserveClusterIDs=true
 ```
-> EXPORT DATABASE ../schema.export  
-> IMPORT DATABASE ../schema.export -preserveClusterIDs=true  
 
 # oracle
 ```sh
