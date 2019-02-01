@@ -1,3 +1,10 @@
+# callback testing
+[ngrok](https://dashboard.ngrok.com/get-started)
+```
+./ngrok authtoken 7mGeAwW29VGGfmxjvHhYZ_7DVLq1J8PCPGMSdCefYx8
+./ngrok http 80
+```
+
 # set time
 ```sh
 sudo aptitude install tzdata  
