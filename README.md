@@ -174,7 +174,7 @@ nano /etc/ssh/sshd_config
 ```
 Match Group sftp_users  
 ChrootDirectory /data/%u  
-ForceCommand internal-sftp  
+ForceCommand internal-sftp -P write  
 ```
 systemctl restart sshd
 sftp sftp_user@SERVER_IP
