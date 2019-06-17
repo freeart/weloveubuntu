@@ -160,6 +160,26 @@ sudo umount /home/FTP-shared/upload
 sudo /etc/init.d/proftpd restart
 ```
 
+# sftp
+```sh
+mkdir -p /data/sftp
+chmod 701 /data
+groupadd sftp_users
+useradd -g sftp_users -d /upload -s /sbin/nologin sftp_user
+passwd sftp_user
+mkdir -p /data/sftp_user/upload
+chown -R root:sftp_users /data/sftp_user
+chown -R sftp_user:sftp_users /data/sftp_user/upload
+nano /etc/ssh/sshd_config
+```
+Match Group sftp_users  
+ChrootDirectory /data/%u  
+ForceCommand internal-sftp  
+```
+systemctl restart sshd
+sftp sftp_user@SERVER_IP
+```
+
 # selenium
 ```sh
 sudo apt-get install firefox xvfb
