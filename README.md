@@ -1,3 +1,8 @@
+# get public key
+```bash
+pbcopy < ~/.ssh/id_rsa.pub
+```
+
 # git revert  remote commit
 ```bash
 git push origin +xxxxxxxx^:master
