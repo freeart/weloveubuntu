@@ -1,3 +1,10 @@
+# git revert  remote commit
+```bash
+git push origin +xxxxxxxx^:master
+git reset HEAD^ --hard
+git push origin -f
+```
+
 # callback testing
 [ngrok](https://dashboard.ngrok.com/get-started)
 ```
