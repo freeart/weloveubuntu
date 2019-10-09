@@ -1,3 +1,9 @@
+# allow apps from anywhere in gatekeeper
+```bash
+sudo spctl --master-disable
+sudo spctl --master-enable
+```
+
 # get public key
 ```bash
 pbcopy < ~/.ssh/id_rsa.pub
