@@ -1,3 +1,9 @@
+# zsh "No match found"
+```bash
+setopt +o nomatch
+setopt -o nomatch
+```
+
 # allow apps from anywhere in gatekeeper
 ```bash
 sudo spctl --master-disable
