@@ -1,3 +1,10 @@
+# simple local cert 
+```bash
+brew install mkcert
+mkcert -install
+mkcert 0.0.0.0 localhost 127.0.0.1 ::1
+```
+
 # zsh "No match found"
 ```bash
 setopt +o nomatch
